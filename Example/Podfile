@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'BSPatch_Example' do
+  pod 'BSPatch', :path => '../'
+
+  target 'BSPatch_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
