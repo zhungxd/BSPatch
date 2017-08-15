@@ -1,0 +1,23 @@
+{
+  "name": "BSPatch",
+  "version": "0.1.0",
+  "summary": "BSPatch for iOS",
+  "description": "BSPatch for iOS",
+  "homepage": "https://github.com/zhungxd/BSPatch",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "xiaodong.zhang": "xiaodong.zhang@fanli.com"
+  },
+  "source": {
+    "git": "git@github.com:zhungxd/BSPatch.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "7.0"
+  },
+  "source_files": "BSPatch/Classes/**/*",
+  "libraries": "bz2"
+}

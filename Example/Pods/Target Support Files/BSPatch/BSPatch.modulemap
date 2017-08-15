@@ -1,0 +1,6 @@
+framework module BSPatch {
+  umbrella header "BSPatch-umbrella.h"
+
+  export *
+  module * { export * }
+}
