@@ -128,29 +128,29 @@ int beginPatch(const char* oldfile, const char* newfile, const char* patchfile)
     
     /* Open patch file */
     if ((f = fopen(patchfile, "r")) == NULL) {
-        printf(1, "fopen(%s)", patchfile);
+        printf("fopen(%s)", patchfile);
         return -1;
     }
     
     /* Read header */
     if (fread(header, 1, 24, f) != 24) {
         if (feof(f)) {
-            printf(1, "Corrupt patch\n");
+            printf("Corrupt patch\n");
         }
-        printf(1, "fread(%s)", patchfile);
+        printf("fread(%s)", patchfile);
         return -1;
     }
     
     /* Check for appropriate magic */
     if (memcmp(header, "ENDSLEY/BSDIFF43", 16) != 0) {
-        printf(1, "Corrupt patch\n");
+        printf("Corrupt patch\n");
         return -1;
     }
     
     /* Read lengths from header */
     newsize=offtin(header+16);
     if(newsize<0) {
-        printf(1,"Corrupt patch\n");
+        printf("Corrupt patch\n");
         return -1;
     }
     
@@ -160,18 +160,17 @@ int beginPatch(const char* oldfile, const char* newfile, const char* patchfile)
        ((old=malloc(oldsize+1))==NULL) ||
        (lseek(fd,0,SEEK_SET)!=0) ||
        (read(fd,old,oldsize)!=oldsize) ||
-       (close(fd)==-1)) printf(1,"%s",oldfile);
-    if((new=malloc(newsize+1))==NULL) printf(1,NULL);
+       (close(fd)==-1)) printf("%s",oldfile);
     
     if (NULL == (bz2 = BZ2_bzReadOpen(&bz2err, f, 0, 1, NULL, 0))) {
-        printf(1, "BZ2_bzReadOpen, bz2err=%d", bz2err);
+        printf("BZ2_bzReadOpen, bz2err=%d", bz2err);
         return -1;
     }
     
     stream.read = bz2_read;
     stream.opaque = bz2;
     if (bspatch(old, oldsize, new, newsize, &stream)) {
-        printf(1, "bspatch");
+        printf("bspatch");
         return -1;
     }
     
@@ -182,7 +181,7 @@ int beginPatch(const char* oldfile, const char* newfile, const char* patchfile)
     /* Write the new file */
     if(((fd=open(newfile,O_CREAT|O_TRUNC|O_WRONLY,0666))<0) ||
        (write(fd,new,newsize)!=newsize) || (close(fd)==-1)) {
-        printf(1,"%s",newfile);
+        printf("%s",newfile);
         return -1;
     }
     free(new);
