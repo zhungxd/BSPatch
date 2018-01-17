@@ -161,7 +161,8 @@ int beginPatch(const char* oldfile, const char* newfile, const char* patchfile)
        (lseek(fd,0,SEEK_SET)!=0) ||
        (read(fd,old,oldsize)!=oldsize) ||
        (close(fd)==-1)) printf("%s",oldfile);
-    
+    if((new=malloc(newsize+1))==NULL) printf("error");
+
     if (NULL == (bz2 = BZ2_bzReadOpen(&bz2err, f, 0, 1, NULL, 0))) {
         printf("BZ2_bzReadOpen, bz2err=%d", bz2err);
         return -1;
