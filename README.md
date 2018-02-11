@@ -7,7 +7,10 @@
 
 ## Example
 
-a BSPatch labrary for iOS
+a BSPatch library for iOS. from https://github.com/mendsley/bsdiff.
+bsdiff and bspatch are libraries for building and applying patches to binary files.
+
+The original algorithm and implementation was developed by Colin Percival. The algorithm is detailed in his (unpublished) paper, Naïve Differences of Executable Code. For more information, visit his website at http://www.daemonology.net/bsdiff/.
 
 ## Requirements
 
