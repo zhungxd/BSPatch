@@ -7,7 +7,7 @@
 
 ## Example
 
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
+a BSPatch labrary for iOS
 
 ## Requirements
 
@@ -22,7 +22,7 @@ pod "BSPatch"
 
 ## Author
 
-xiaodong.zhang, xiaodong.zhang@fanli.com
+xiaodong.zhang, zhungxd@126.com
 
 ## License
 
